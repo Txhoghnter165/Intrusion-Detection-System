@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "../microsoft.o365.security.krabsetw.4.4.9/lib/native/include/krabs.hpp"
+#include "krabs/krabs.hpp"
 
 void start()
 {

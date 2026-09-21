@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cassert>
-#include "krabs/krabs.hpp"
+#include "../ETW_consumer/krabs/krabs.hpp"
+#include "../Include/names.h"
 
-void start()
+void ETWconsumer::start()
 {
     krabs::user_trace trace(L"ETWconsumer");
     krabs::provider<> provider(L"Microsoft-Windows-Kernel-Process");

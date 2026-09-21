@@ -5,14 +5,29 @@
             "label": "C/C++: cl.exe build active file",
             "command": "cl.exe",
             "args": [
-                "/Zi",
+             /*   "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "-g",
+                "-std=c++17",
+                "-o",
+                "-I${workspaceFolder}/ETW_consumer/krabs/krabs",
+                "-I${workspaceFolder}/ETW_consumer/krabs/krabs.hpp",
+                "${workspaceFolder}/src/*.cpp",  */
+                "/nologo",
+                "/EHsc",
+                "/std:c++17",
+                "/Zi",
+                "/DUNICODE",
+                "/D_UNICODE",
+                "/I${workspaceFolder}/ETW_consumer/krabs",
+                "${workspaceFolder}/src/*.cpp",
+                "/Fe${workspaceFolder}/build/ids.exe",
+                "tdh.lib",
+                "advapi32.lib"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$msCompile"

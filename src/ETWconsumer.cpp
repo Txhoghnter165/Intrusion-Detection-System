@@ -1,21 +1,179 @@
+#include <thread>
 #include <iostream>
 #include <cassert>
 #include "../ETW_consumer/krabs/krabs.hpp"
 #include "../Include/names.h"
 
+    static void configure_security_provider(krabs::provider<>& provider);
+    static void configure_registry_provider(krabs::provider<>& provider);
+    static void configure_file_provider(krabs::provider<>& provider);
+    static void configure_network_provider(krabs::provider<>& provider);
+    static void configure_process_provider(krabs::provider<>& provider);
+
 void ETWconsumer::start()
 {
-    krabs::user_trace trace(L"ETWconsumer");
-    krabs::provider<> provider(L"Microsoft-Windows-Kernel-Process");
-    provider.any(1);
-    krabs::event_filter filter(krabs::predicates::id_is(1));
-    filter.add_on_event_callback([](const EVENT_RECORD &record, const krabs::trace_context &trace_context) {
-     krabs::schema schema(record, trace_context.schema_locator);
-     assert(schema.event_id() == 1);
-     std::wcout << L"Event 1 received!" << std::endl;
-    });
+    try
+    {
+      krabs::user_trace trace(L"ETWconsumer");
 
-    provider.add_filter(filter);
-    trace.enable(provider);
-    trace.start();
+      krabs::provider<> Security_provider(krabs::guid(L"{54849625-5478-4994-A5BA-3E3B0328C30D}"));
+      krabs::provider<> Registry_provider(krabs::guid(L"{70eb4f03-c1de-4f73-a051-33d13d5413bd}"));
+      krabs::provider<> File_provider(krabs::guid(L"{edd08927-9cc4-4e65-b970-c2560fb5c289}"));
+      krabs::provider<> Network_provider(krabs::guid(L"{7dd42a49-5329-4832-8dfd-43d979153a88}"));
+      krabs::provider<> Process_provider(krabs::guid(L"{22FB2CD6-0E7B-422B-A0C7-2FAD1FD0E716}"));
+        
+      std::thread worker_;
+
+      configure_security_provider(Security_provider);
+      configure_registry_provider(Registry_provider);
+      configure_file_provider(File_provider);
+      configure_network_provider(Network_provider);
+      configure_process_provider(Process_provider);
+
+     trace.enable(Security_provider);
+     //trace.enable(Registry_provider);
+     //trace.enable(File_provider);
+     //trace.enable(Network_provider);
+     //trace.enable(Process_provider);
+          std::thread([trace = std::move(trace)]() mutable
+          {
+             try
+            {
+                trace.start();
+            }
+            catch (const std::exception& e)
+            {
+            std::cerr << "Fatal error in trace." << e.what() << std::endl;
+            trace.stop();
+            }
+            });
+    } 
+    catch (const std::exception& e) 
+    {
+        std::cerr << "Fatal error: " << e.what() << std::endl;
+    }
+    if (worker_.joinable())
+    {
+        worker_.join();
+    }
+} 
+void configure_security_provider(krabs::provider<>& provider) //Imput all the event IDs you want to monitor for the security provider
+{
+    provider.any(0xFFFFFFFFFFFFFFFF);
+
+    provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
+    {
+        try
+        {
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            {
+                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+            }
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Error processing event: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Unknown error processing event." << std::endl;
+        }
+    });
+}
+void configure_registry_provider(krabs::provider<>& provider) //Imput the different event IDs for registry events.
+{
+    provider.any(0xFFFFFFFFFFFFFFFF);
+
+    provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
+    {
+        try
+        {
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            {
+                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+            }
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Error processing event: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Unknown error processing event." << std::endl;
+        }
+    });
+}
+void configure_file_provider(krabs::provider<>& provider) //change to display the event name along with description of the event.
+{
+    provider.any(0xFFFFFFFFFFFFFFFF);
+
+    provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
+    {
+        try
+        {
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            {
+                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+            }
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Error processing event: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Unknown error processing event." << std::endl;
+        }
+    });
+}
+void configure_network_provider(krabs::provider<>& provider) //change this to define what the event name is along with description of the event.
+{
+    provider.any(0xFFFFFFFFFFFFFFFF);
+
+    provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
+    {
+        try
+        {
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            {
+                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+            }
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Error processing event: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Unknown error processing event." << std::endl;
+        }
+    });
+}
+void configure_process_provider(krabs::provider<>& provider) //Figure out what this even does.
+{
+    provider.any(0xFFFFFFFFFFFFFFFF);
+
+    provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
+    {
+        try
+        {
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            {
+                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+            }
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Error processing event: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Unknown error processing event." << std::endl;
+        }
+    });
 }

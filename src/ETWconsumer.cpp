@@ -5,65 +5,60 @@
 #include "../Include/names.h"
 
     static void configure_security_provider(krabs::provider<>& provider);
-    static void configure_registry_provider(krabs::provider<>& provider);
-    static void configure_file_provider(krabs::provider<>& provider);
+  //  static void configure_registry_provider(krabs::provider<>& provider);
+   /* static void configure_file_provider(krabs::provider<>& provider);
     static void configure_network_provider(krabs::provider<>& provider);
-    static void configure_process_provider(krabs::provider<>& provider);
+    static void configure_process_provider(krabs::provider<>& provider);*/
 
-void ETWconsumer::start()
+
+ void ETWconsumer::start()
 {
-    try
-    {
       krabs::user_trace trace(L"ETWconsumer");
+      
 
       krabs::provider<> Security_provider(krabs::guid(L"{54849625-5478-4994-A5BA-3E3B0328C30D}"));
-      krabs::provider<> Registry_provider(krabs::guid(L"{70eb4f03-c1de-4f73-a051-33d13d5413bd}"));
+     /* krabs::provider<> Registry_provider(krabs::guid(L"{70eb4f03-c1de-4f73-a051-33d13d5413bd}"));
       krabs::provider<> File_provider(krabs::guid(L"{edd08927-9cc4-4e65-b970-c2560fb5c289}"));
       krabs::provider<> Network_provider(krabs::guid(L"{7dd42a49-5329-4832-8dfd-43d979153a88}"));
-      krabs::provider<> Process_provider(krabs::guid(L"{22FB2CD6-0E7B-422B-A0C7-2FAD1FD0E716}"));
-        
-      std::thread worker_;
+      krabs::provider<> Process_provider(krabs::guid(L"{22FB2CD6-0E7B-422B-A0C7-2FAD1FD0E716}")); */
+
+    // std::thread blasphamy;
 
       configure_security_provider(Security_provider);
-      configure_registry_provider(Registry_provider);
+      /* configure_registry_provider(Registry_provider);
       configure_file_provider(File_provider);
       configure_network_provider(Network_provider);
-      configure_process_provider(Process_provider);
+      configure_process_provider(Process_provider); */
 
      trace.enable(Security_provider);
      //trace.enable(Registry_provider);
      //trace.enable(File_provider);
      //trace.enable(Network_provider);
      //trace.enable(Process_provider);
-          std::thread([trace = std::move(trace)]() mutable
-          {
-             try
+     
+        try
             {
                 trace.start();
             }
             catch (const std::exception& e)
             {
             std::cerr << "Fatal error in trace." << e.what() << std::endl;
-            trace.stop();
-            }
-            });
-    } 
-    catch (const std::exception& e) 
+         }
+       
+
+   /* if (blasphamy.joinable())
     {
-        std::cerr << "Fatal error: " << e.what() << std::endl;
-    }
-    if (worker_.joinable())
-    {
-        worker_.join();
-    }
-} 
+        blasphamy.join();
+    }*/
+}
+
 void configure_security_provider(krabs::provider<>& provider) //Imput all the event IDs you want to monitor for the security provider
 {
     provider.any(0xFFFFFFFFFFFFFFFF);
 
     provider.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
     {
-        try
+        /* try
         {
             krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4624 || schema.event_id() == 4625)
@@ -78,10 +73,10 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
         catch (...)
         {
             std::cerr << "Unknown error processing event." << std::endl;
-        }
+        } */
     });
 }
-void configure_registry_provider(krabs::provider<>& provider) //Imput the different event IDs for registry events.
+/* void configure_registry_provider(krabs::provider<>& provider) //Imput the different event IDs for registry events.
 {
     provider.any(0xFFFFFFFFFFFFFFFF);
 
@@ -176,4 +171,4 @@ void configure_process_provider(krabs::provider<>& provider) //Figure out what t
             std::cerr << "Unknown error processing event." << std::endl;
         }
     });
-}
+} */

@@ -1,10 +1,10 @@
 #include <iostream>
 #include "../include/names.h"
-
+#include <thread>
 int main(){
     ETWconsumer::start();
-
-    if (Blasphemy.joinable())
+std::this_thread::sleep_for(std::chrono::seconds(120));
+   if (Blasphemy.joinable())
     {
         Blasphemy.join();
     }
@@ -12,5 +12,5 @@ int main(){
     if (Truth.joinable())
     {
         Truth.join();
-    }
-}
+    } 
+} 

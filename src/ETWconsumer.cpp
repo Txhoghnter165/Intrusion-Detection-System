@@ -61,7 +61,9 @@
         trace.enable(File_provider);
         trace.enable(Network_provider);
         trace.enable(Process_provider);
+        std::cout << "trace start\n";
                 trace.start();
+                std::cout << "message\n";
             }
             catch (const std::exception& e)
             {
@@ -70,10 +72,13 @@
     
      });
 
-     Blasphemy = std::thread([&](){
-std::this_thread::sleep_for(std::chrono::seconds(100000));
+     Blasphemy = std::thread([&]()
+     {
+        std::cout << "sleep time\n";
+std::this_thread::sleep_for(std::chrono::seconds(20));
 
         trace.stop();
+        std::cout << "meage\n";
      });
 
 

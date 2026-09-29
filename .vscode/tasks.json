@@ -1,9 +1,9 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C/C++: cl.exe build active file",
-            "command": "cl.exe",
+            "command": "g++.exe",
             "args": [
              /*   "/Zi",
                 "/EHsc",
@@ -30,7 +30,7 @@
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
-                "$msCompile"
+                "$mscompiler"
             ],
             "group": {
                 "kind": "build",

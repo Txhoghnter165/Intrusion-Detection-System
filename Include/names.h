@@ -1,9 +1,9 @@
 #pragma once
-
+#include <thread>
 struct ETWconsumer
 {
    static void start();
 };
 
-static std::thread Truth;
-static std::thread Blasphemy;
+extern std::thread Truth;
+extern std::thread Blasphemy;

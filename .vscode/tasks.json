@@ -15,7 +15,6 @@
                 "-I${workspaceFolder}/ETW_consumer/krabs/krabs.hpp",
                 "${workspaceFolder}/src/*.cpp",  */
                 "/c",
-                "&&",
                 "/nologo",
                 "/EHsc",
                 "/std:c++17",

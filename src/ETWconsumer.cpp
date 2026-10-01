@@ -5,11 +5,11 @@
 #include "../ETW_consumer/krabs/krabs.hpp"
 #include "../Include/names.h"
 
-  /*  static void configure_security_provider(krabs::provider<>& provider);
-    static void configure_registry_provider(krabs::provider<>& provider);
-    static void configure_file_provider(krabs::provider<>& provider);
-    static void configure_network_provider(krabs::provider<>& provider);
-    static void configure_process_provider(krabs::provider<>& provider);*/
+    static void configure_security_provider(krabs::provider<>& provider);
+    static void configure_registry_provider(krabs::kernel::registry_provider& provider);
+    static void configure_file_provider(krabs::kernel::file_io_provider& provider);
+   // static void configure_network_provider(krabs::provider<>& provider);
+    static void configure_process_provider(krabs::kernel::process_provider& provider);
 
 
  void ETWconsumer::start()
@@ -96,6 +96,12 @@
         std::cerr << "Error enabling provider " << id << ": " << e.what() << "\n";
         return true;
     });
+
+    configure_security_provider(Security_provider);
+    configure_registry_provider(reg);
+    configure_file_provider(file);
+    configure_process_provider(process);
+
     kernel.enable(reg);
     kernel.enable(file);
     kernel.enable(process);
@@ -114,7 +120,7 @@
      Blasphemy = std::thread([&]()
      {
         std::cout << "sleep time\n";
-std::this_thread::sleep_for(std::chrono::seconds(20));
+std::this_thread::sleep_for(std::chrono::seconds(120));
         kernel.stop();
         std::cout << "kernel stoppped\n";
         user.stop();
@@ -136,7 +142,7 @@ if (Blasphemy.joinable())
     }
 }
 
-/*void configure_security_provider(krabs::provider<>& provider) //Imput all the event IDs you want to monitor for the security provider
+void configure_security_provider(krabs::provider<>& provider) //Imput all the event IDs you want to monitor for the security provider
 {
     provider.any(0xFFFFFFFFFFFFFFFF);
 
@@ -172,7 +178,6 @@ if (Blasphemy.joinable())
 }
 void configure_registry_provider(krabs::provider<>& provider) //Imput the different event IDs for registry events.
 {
-    provider.any(0xFFFFFFFFFFFFFFFF);
      krabs::event_filter registry_filter(
      [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
          {
@@ -204,7 +209,6 @@ void configure_registry_provider(krabs::provider<>& provider) //Imput the differ
 }
 void configure_file_provider(krabs::provider<>& provider) //change to display the event name along with description of the event.
 {
-    provider.any(0xFFFFFFFFFFFFFFFF);
 
         krabs::event_filter file_filter(
         [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
@@ -235,7 +239,7 @@ void configure_file_provider(krabs::provider<>& provider) //change to display th
         }
     });
 }
-void configure_network_provider(krabs::provider<>& provider) //change this to define what the event name is along with description of the event.
+/*void configure_network_provider(krabs::provider<>& provider) //change this to define what the event name is along with description of the event.
 {
     provider.any(0xFFFFFFFFFFFFFFFF);
 
@@ -267,11 +271,9 @@ void configure_network_provider(krabs::provider<>& provider) //change this to de
             std::cerr << "Unknown error processing event." << std::endl;
         }
     });
-}
-void configure_process_provider(krabs::provider<>& provider) //Figure out what this even does.
+}*/
+void configure_process_provider(krabs::kernel::process_provider& provider) //Figure out what this even does.
 {
-    provider.any(0xFFFFFFFFFFFFFFFF);
-
         krabs::event_filter process_filter(
         [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
         {
@@ -300,4 +302,4 @@ void configure_process_provider(krabs::provider<>& provider) //Figure out what t
             std::cerr << "Unknown error processing event." << std::endl;
         }
     });
-} */
+} 

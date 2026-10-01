@@ -2,6 +2,8 @@
 #include "../include/names.h"
 #include <thread>
 
+std::thread Truth;
+std::thread Blasphemy;
 
 int main(){
     ETWconsumer::start();

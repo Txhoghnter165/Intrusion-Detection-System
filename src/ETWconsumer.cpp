@@ -8,7 +8,7 @@
     static void configure_security_provider(krabs::provider<>& provider);
     static void configure_registry_provider(krabs::kernel::registry_provider& provider);
     static void configure_file_provider(krabs::kernel::file_io_provider& provider);
-   // static void configure_network_provider(krabs::provider<>& provider);
+    static void configure_network_provider(krabs::provider<>& provider);
     static void configure_process_provider(krabs::kernel::process_provider& provider);
 
 
@@ -88,7 +88,8 @@
     std::cout << "kernel providers loaded\n";
 
     krabs::provider<> Security_provider(krabs::guid(L"{54849625-5478-4994-A5BA-3E3B0328C30D}"));
-    
+    krabs::provider<> Network_provider(krabs::guid(L"{7dd42a49-5329-4832-8dfd-43d979153a88}"));
+
     std::cout << "user providers loaded\n";
 
     user.set_enable_provider_error_callback([](const krabs::guid& id, const std::exception& e) {
@@ -101,12 +102,14 @@
     configure_registry_provider(reg);
     configure_file_provider(file);
     configure_process_provider(process);
+    configure_network_provider(Network_provider);
 
     kernel.enable(reg);
     kernel.enable(file);
     kernel.enable(process);
     std::cout << "kernel providers enabled\n";
     user.enable(Security_provider);
+    user.enable(Network_provider);
     std::cout << "user provider enabled\n";
 
     std::thread forerunner([&]{
@@ -176,7 +179,7 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
 
 
 }
-void configure_registry_provider(krabs::provider<>& provider) //Imput the different event IDs for registry events.
+void configure_registry_provider(krabs::kernel::registry_provider& provider) //Imput the different event IDs for registry events.
 {
      krabs::event_filter registry_filter(
      [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
@@ -207,7 +210,7 @@ void configure_registry_provider(krabs::provider<>& provider) //Imput the differ
         }
     });
 }
-void configure_file_provider(krabs::provider<>& provider) //change to display the event name along with description of the event.
+void configure_file_provider(krabs::kernel::file_io_provider& provider) //change to display the event name along with description of the event.
 {
 
         krabs::event_filter file_filter(
@@ -239,7 +242,7 @@ void configure_file_provider(krabs::provider<>& provider) //change to display th
         }
     });
 }
-/*void configure_network_provider(krabs::provider<>& provider) //change this to define what the event name is along with description of the event.
+void configure_network_provider(krabs::provider<>& provider) //change this to define what the event name is along with description of the event.
 {
     provider.any(0xFFFFFFFFFFFFFFFF);
 
@@ -271,7 +274,7 @@ void configure_file_provider(krabs::provider<>& provider) //change to display th
             std::cerr << "Unknown error processing event." << std::endl;
         }
     });
-}*/
+}
 void configure_process_provider(krabs::kernel::process_provider& provider) //Figure out what this even does.
 {
         krabs::event_filter process_filter(

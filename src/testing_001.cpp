@@ -13,8 +13,9 @@
 void test_001::start()
 {
     krabs::user_trace trace(L"My Named Trace");
-    krabs::provider<> Security_provider(krabs::guid(L"{54849625-5478-4994-A5BA-3E3B0328C30D}"));
-   // krabs::guid powershell(L"{A0C1853B-5C40-4B15-8766-3CF1C58F985A}");
+    
+    krabs::guid Security_provider(L"{54849625-5478-4994-A5BA-3E3B0328C30D}");
+    krabs::guid powershell(L"{A0C1853B-5C40-4B15-8766-3CF1C58F985A}");
     krabs::provider<> security(Security_provider);
     security.any(0xf0010000000003ff);
 
@@ -34,7 +35,7 @@ void test_001::start()
 
     // In order to push an event through the trace, we need to manufacture an
     // event. We can use record_builder to do this.
-    krabs::testing::record_builder builder(Security_provider, krabs::id(7937), krabs::version(1));
+    krabs::testing::record_builder builder(Security_provider, krabs::id(4624), krabs::version(1));
 
     // For some events, there may be flags that need to be set to some arcane values. Forcing
     // event schema lookup like this without a real event is a little shady anyway, so this

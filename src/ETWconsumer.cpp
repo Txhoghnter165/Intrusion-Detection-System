@@ -4,6 +4,7 @@
 #include <chrono>
 #include "../ETW_consumer/krabs/krabs.hpp"
 #include "../Include/names.h"
+#include "../include/arraying.h"
 
     static void configure_security_provider(krabs::provider<>& provider);
     static void configure_registry_provider(krabs::kernel::registry_provider& provider);
@@ -11,7 +12,9 @@
     static void configure_network_provider(krabs::provider<>& provider);
     static void configure_process_provider(krabs::kernel::process_provider& provider);
 
+    std::vector <int> numerics = {
 
+    };
  void ETWconsumer::start()
 {
     /*  krabs::user_trace trace(L"ETWconsumer");
@@ -153,8 +156,10 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
         [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
         {
             krabs::schema schema(record, ctx.schema_locator);
-            const auto id = schema.event_id();
-            return id == 4624 || id == 4625;
+            const auto sid = schema.event_id();
+            for (int id : numerics){
+                return id == sid;
+            }
         });
         provider.add_filter(security_filter);
     security_filter.add_on_event_callback([](const EVENT_RECORD& record, const krabs::trace_context& ctx)
@@ -181,12 +186,13 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
 }
 void configure_registry_provider(krabs::kernel::registry_provider& provider) //Imput the different event IDs for registry events.
 {
+    
      krabs::event_filter registry_filter(
      [](const EVENT_RECORD& record, const krabs::trace_context& ctx) -> bool
          {
             krabs::schema schema(record, ctx.schema_locator);
             const auto id = schema.event_id();
-            return id == 4624 || id == 4625;
+            return id == 4624 || id == 4625 || id == 4649 || id == 4719 || id == 4765;
         });
         provider.add_filter(registry_filter);
 

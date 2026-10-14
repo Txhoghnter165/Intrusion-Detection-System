@@ -26,7 +26,7 @@
         4699,4700,4701,4702,4704,4705,4710,4712,4717,
         4718,4720,4722,4723,4728,4729,4730,4731,4732,
         4733,4734,4740,4782,4946,4947,4948,4949,4950,
-        4954,5031
+        4954,5031,4625
     };
  void ETWconsumer::start()
 {
@@ -180,10 +180,131 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
          try
         {
             krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 4624 || schema.event_id() == 4625)
+            if (schema.event_id() == 4625)
             {
-                std::wcout << L"Event 4624 or 4625 received!" << std::endl;
+                std::wcout << L"Event 4625: failed logon attempt" << std::endl;
             }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4618)
+            {
+                std::wcout << L"Event 4618: security event pattern occurred" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4649)
+            {
+                std::wcout << L"Event 4649: a possible replay attack was detected" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4719)
+            {
+                std::wcout << L"Event 4719: audit policy has been altered" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4765)
+            {
+                std::wcout << L"Event 4765: SID History was added to an account" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4766)
+            {
+                std::wcout << L"Event 4766: attempt to add SID history to an account failed" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4794)
+            {
+                std::wcout << L"Event 4794: attempt was made to set the directory services restore mode" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4897)
+            {
+                std::wcout << L"Event 4897: Role separation was enabled" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4964)
+            {
+                std::wcout << L"Event 4964: special groups have been assigned to a new logon" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 5124)
+            {
+                std::wcout << L"Event 5124: A security setting was updated on the OCSP Responder Service" << std::endl;
+            }
+            krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4621)
+            {
+                std::wcout << L"Event 4621: recovered system from crash on audit failure. activity might not have been recorded" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4675)
+            {
+                std::wcout << L"Event 4675: SIDs were filtered" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4692)
+            {
+                std::wcout << L"Event 4692: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 1102)
+            {
+                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+            }
+
         }
         catch (const std::exception& e) 
         {

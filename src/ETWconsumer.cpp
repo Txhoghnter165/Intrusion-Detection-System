@@ -184,127 +184,118 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
             {
                 std::wcout << L"Event 4625: failed logon attempt" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4618)
             {
                 std::wcout << L"Event 4618: security event pattern occurred" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4649)
             {
                 std::wcout << L"Event 4649: a possible replay attack was detected" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4719)
             {
                 std::wcout << L"Event 4719: audit policy has been altered" << std::endl;
-            }
-            krabs::schema schema(record, ctx.schema_locator);
+            };
             if (schema.event_id() == 4765)
             {
                 std::wcout << L"Event 4765: SID History was added to an account" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4766)
             {
                 std::wcout << L"Event 4766: attempt to add SID history to an account failed" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4794)
             {
                 std::wcout << L"Event 4794: attempt was made to set the directory services restore mode" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4897)
             {
                 std::wcout << L"Event 4897: Role separation was enabled" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4964)
             {
                 std::wcout << L"Event 4964: special groups have been assigned to a new logon" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 5124)
             {
                 std::wcout << L"Event 5124: A security setting was updated on the OCSP Responder Service" << std::endl;
             }
-            krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4621)
             {
                 std::wcout << L"Event 4621: recovered system from crash on audit failure. activity might not have been recorded" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4675)
             {
                 std::wcout << L"Event 4675: SIDs were filtered" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
             if (schema.event_id() == 4692)
             {
-                std::wcout << L"Event 4692: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4692: Backup of data protection master key was attempted" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
+            if (schema.event_id() == 4693)
+            {
+                std::wcout << L"Event 4693: Recovery of data protection master key was attempted" << std::endl;
+            }
             if (schema.event_id() == 1102)
             {
                 std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4713)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4713: Kerberos policy was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4714)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4714: Encrypted data recovery policy was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4715)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4715: The audit policy (SACL) on an object was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4724)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4724: An attempt was made to reset an account's password" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4727)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4727: A security-enabled global group was created" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4735)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4735: A security-enabled local group was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4737)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4737: A security-enabled global group was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4739)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4739: Domain Policy was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4754)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4754: A security-enabled universal group was created" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4755)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4755: A security-enabled universal group was changed" << std::endl;
             }
-                        krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 1102)
+            if (schema.event_id() == 4764)
             {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                std::wcout << L"Event 4764: A security-disabled group was deleted / A group's type was changed" << std::endl;
             }
-
+            if (schema.event_id() == 4780)
+            {
+                std::wcout << L"Event 4780: The ACL was set on accounts which are members of administrators groups" << std::endl;
+            }
+            if (schema.event_id() == 4865)
+            {
+                std::wcout << L"Event 4865: A trusted forest information entry was added" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
         }
         catch (const std::exception& e) 
         {

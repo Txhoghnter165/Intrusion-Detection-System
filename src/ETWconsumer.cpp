@@ -296,6 +296,106 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
             {
                 std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
             }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
+            if (schema.event_id() == 4866)
+            {
+                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+            }
         }
         catch (const std::exception& e) 
         {

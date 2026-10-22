@@ -296,65 +296,65 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
             {
                 std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4867)
+            {
+                std::wcout << L"Event 4867: A trusted forest information entry was modified" << std::endl;
+            }
+            if (schema.event_id() == 4868)
+            {
+                std::wcout << L"Event 4868: The certificate manager denied a pending certificate request" << std::endl;
+            }
+            if (schema.event_id() == 4870)
+            {
+                std::wcout << L"Event 4870: Certificate Services revoked a certificate" << std::endl;
+            }
+            if (schema.event_id() == 4882)
+            {
+                std::wcout << L"Event 4882: The security permissions for Certificate Services changed" << std::endl;
+            }
+            if (schema.event_id() == 4885)
+            {
+                std::wcout << L"Event 4885: The audit filter for Certificate Services changed" << std::endl;
+            }
+            if (schema.event_id() == 4890)
+            {
+                std::wcout << L"Event 4890: The certificate manager settings for Certificate Services changed" << std::endl;
+            }
+            if (schema.event_id() == 4892)
+            {
+                std::wcout << L"Event 4892: A property of Certificate Services changed" << std::endl;
+            }
+            if (schema.event_id() == 4892)
             {
                 std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4896)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4896: One or more rows have been deleted from the certificate database" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4906)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4906: The CrashOnAuditFail value has changed" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4907)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4907: Auditing settings on object were changed" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4908)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4908: Special Groups Logon table modified" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4912)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4912: Per User Audit Policy was changed" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4960)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4960: IPsec dropped an inbound packet that failed an integrity check" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4961)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4961: IPsec dropped an inbound packet that failed a replay check" << std::endl;
             }
             if (schema.event_id() == 4866)
             {

@@ -354,47 +354,47 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
             }
             if (schema.event_id() == 4961)
             {
-                std::wcout << L"Event 4961: IPsec dropped an inbound packet that failed a replay check" << std::endl;
+                std::wcout << L"Event 4961: IPsec dropped an inbound packet that failed a replay check. could indicate a replay attack" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4962)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4962: IPsec dropped an inbound packet that failed a replay check. too low sequence number to ensure it was not a replay" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4963)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4963: IPsec dropped an inbound clear text packet that should have been secured" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4965)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4965: IPsec received a packet from a remote computer with an incorrect Security Parameter Index" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4976)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4976: During Main Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4977)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4977: During Quick Mode negotiation, IPsec received an invalid negotiation packet." << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4978)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4978: During Extended Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4983)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4983: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted." << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 4984)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 4984: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 5027)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 5027: The Windows Firewall Service was unable to retrieve the security policy from the local storage" << std::endl;
             }
-            if (schema.event_id() == 4866)
+            if (schema.event_id() == 5028)
             {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                std::wcout << L"Event 5028: The Windows Firewall Service was unable to parse the new security policy." << std::endl;
             }
         }
         catch (const std::exception& e) 

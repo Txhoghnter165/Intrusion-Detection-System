@@ -6,6 +6,7 @@
 #include "../Include/names.h"
 #include "../include/arraying.h"
 
+
     static void configure_security_provider(krabs::provider<>& provider);
     static void configure_registry_provider(krabs::kernel::registry_provider& provider);
     static void configure_file_provider(krabs::kernel::file_io_provider& provider);
@@ -180,222 +181,239 @@ void configure_security_provider(krabs::provider<>& provider) //Imput all the ev
          try
         {
             krabs::schema schema(record, ctx.schema_locator);
-            if (schema.event_id() == 4625)
-            {
-                std::wcout << L"Event 4625: failed logon attempt" << std::endl;
+            switch(schema.event_id()){
+                case 4625:
+                    std::wcout << L"Event 4625: failed logon attempt" << std::endl;
+                    break;
+
+                case 4618:
+                    std::wcout << L"Event 4618: security event pattern occurred" << std::endl;
+                    break;
+
+                case 4649:
+                    std::wcout << L"Event 4649: a possible replay attack was detected" << std::endl;
+                    break;
+
+                case 4719:
+                    std::wcout << L"Event 4719: audit policy has been altered" << std::endl;
+                    break;
+
+                case 4765:
+                    std::wcout << L"Event 4765: SID History was added to an account" << std::endl;
+                    break;
+
+                case 4766:
+                    std::wcout << L"Event 4766: attempt to add SID history to an account failed" << std::endl;
+                    break;
+
+                case 4794:
+                    std::wcout << L"Event 4794: attempt was made to set the directory services restore mode" << std::endl;
+                    break;
+
+                case 4897:
+                    std::wcout << L"Event 4897: Role separation was enabled" << std::endl;
+                    break;
+
+                case 4964:
+                    std::wcout << L"Event 4964: special groups have been assigned to a new logon" << std::endl;
+                    break;
+
+                case 5124:
+                    std::wcout << L"Event 5124: A security setting was updated on the OCSP Responder Service" << std::endl;
+                    break;
+
+                case 4621:
+                    std::wcout << L"Event 4621: recovered system from crash on audit failure. activity might not have been recorded" << std::endl;
+                    break;
+
+                case 4675:
+                    std::wcout << L"Event 4675: SIDs were filtered" << std::endl;
+                    break;
+
+                case 4692:
+                    std::wcout << L"Event 4692: Backup of data protection master key was attempted" << std::endl;
+                    break;
+
+                case 4693:
+                    std::wcout << L"Event 4693: Recovery of data protection master key was attempted" << std::endl;
+                    break;
+
+                case 1102:
+                    std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
+                    break;
+
+                case 4713:
+                    std::wcout << L"Event 4713: Kerberos policy was changed" << std::endl;
+                    break;
+
+                case 4714:
+                    std::wcout << L"Event 4714: Encrypted data recovery policy was changed" << std::endl;
+                    break;
+
+                case 4715:
+                    std::wcout << L"Event 4715: The audit policy (SACL) on an object was changed" << std::endl;
+                    break;
+
+                case 4724:
+                    std::wcout << L"Event 4724: An attempt was made to reset an account's password" << std::endl;
+                    break;
+
+                case 4727:
+                    std::wcout << L"Event 4727: A security-enabled global group was created" << std::endl;
+                    break;
+
+                case 4735:
+                    std::wcout << L"Event 4735: A security-enabled local group was changed" << std::endl;
+                    break;
+
+                case 4737:
+                    std::wcout << L"Event 4737: A security-enabled global group was changed" << std::endl;
+                    break;
+
+                case 4739:
+                    std::wcout << L"Event 4739: Domain Policy was changed" << std::endl;
+                    break;
+
+                case 4754:
+                    std::wcout << L"Event 4754: A security-enabled universal group was created" << std::endl;
+                    break;
+
+                case 4755:
+                    std::wcout << L"Event 4755: A security-enabled universal group was changed" << std::endl;
+                    break;
+
+                case 4764:
+                    std::wcout << L"Event 4764: A security-disabled group was deleted / A group's type was changed" << std::endl;
+                    break;
+
+                case 4780:
+                    std::wcout << L"Event 4780: The ACL was set on accounts which are members of administrators groups" << std::endl;
+                    break;
+
+                case 4865:
+                    std::wcout << L"Event 4865: A trusted forest information entry was added" << std::endl;
+                    break;
+
+                case 4866:
+                    std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
+                    break;
+
+                case 4867:
+                    std::wcout << L"Event 4867: A trusted forest information entry was modified" << std::endl;
+                    break;
+
+                case 4868:
+                    std::wcout << L"Event 4868: The certificate manager denied a pending certificate request" << std::endl;
+                    break;
+
+                case 4870:
+                    std::wcout << L"Event 4870: Certificate Services revoked a certificate" << std::endl;
+                    break;
+
+                case 4882:
+                    std::wcout << L"Event 4882: The security permissions for Certificate Services changed" << std::endl;
+                    break;
+
+                case 4885:
+                    std::wcout << L"Event 4885: The audit filter for Certificate Services changed" << std::endl;
+                    break;
+
+                case 4890:
+                    std::wcout << L"Event 4890: The certificate manager settings for Certificate Services changed" << std::endl;
+                    break;
+
+                case 4892:
+                    std::wcout << L"Event 4892: A property of Certificate Services changed" << std::endl;
+                    break;
+
+                case 4896:
+                    std::wcout << L"Event 4896: One or more rows have been deleted from the certificate database" << std::endl;
+                    break;
+
+                case 4906:
+                    std::wcout << L"Event 4906: The CrashOnAuditFail value has changed" << std::endl;
+                    break;
+
+                case 4907:
+                    std::wcout << L"Event 4907: Auditing settings on object were changed" << std::endl;
+                    break;
+
+                case 4908:
+                    std::wcout << L"Event 4908: Special Groups Logon table modified" << std::endl;
+                    break;
+
+                case 4912:
+                    std::wcout << L"Event 4912: Per User Audit Policy was changed" << std::endl;
+                    break;
+
+                case 4960:
+                    std::wcout << L"Event 4960: IPsec dropped an inbound packet that failed an integrity check" << std::endl;
+                    break;
+
+                case 4961:
+                    std::wcout << L"Event 4961: IPsec dropped an inbound packet that failed a replay check. could indicate a replay attack" << std::endl;
+                    break;
+
+                case 4962:
+                    std::wcout << L"Event 4962: IPsec dropped an inbound packet that failed a replay check. too low sequence number to ensure it was not a replay" << std::endl;
+                    break;
+
+                case 4963:
+                    std::wcout << L"Event 4963: IPsec dropped an inbound clear text packet that should have been secured" << std::endl;
+                    break;
+
+                case 4965:
+                    std::wcout << L"Event 4965: IPsec received a packet from a remote computer with an incorrect Security Parameter Index" << std::endl;
+                    break;
+
+                case 4976:
+                    std::wcout << L"Event 4976: During Main Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
+                    break;
+
+                case 4977:
+                    std::wcout << L"Event 4977: During Quick Mode negotiation, IPsec received an invalid negotiation packet." << std::endl;
+                    break;
+
+                case 4978:
+                    std::wcout << L"Event 4978: During Extended Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
+                    break;
+
+                case 4983:
+                    std::wcout << L"Event 4983: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted." << std::endl;
+                    break;
+
+                case 4984:
+                    std::wcout << L"Event 4984: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted" << std::endl;
+                    break;
+
+                case 5027:
+                    std::wcout << L"Event 5027: The Windows Firewall Service was unable to retrieve the security policy from the local storage" << std::endl;
+                    break;
+
+                case 5028:
+                    std::wcout << L"Event 5028: The Windows Firewall Service was unable to parse the new security policy" << std::endl;
+                    break;
+
+                case 5029:
+                    std::wcout << L"Event 5029: The Windows Firewall Service failed to initialize the driver" << std::endl;
+                    break;
+
+                case 5030:
+                    std::wcout << L"Event 5030: The Windows Firewall Service failed to start" << std::endl;
+                    break;
+
+                case 5035:
+                    std::wcout << L"Event 5035: The Windows Firewall Driver failed to start" << std::endl;
+                    break;
+
+                case 5037:
+                    std::wcout << L"Event 5037: The Windows Firewall Driver detected critical runtime error. Terminating" << std::endl;
+                    break;
+
+                default:
+                    break;
             }
-            if (schema.event_id() == 4618)
-            {
-                std::wcout << L"Event 4618: security event pattern occurred" << std::endl;
-            }
-            if (schema.event_id() == 4649)
-            {
-                std::wcout << L"Event 4649: a possible replay attack was detected" << std::endl;
-            }
-            if (schema.event_id() == 4719)
-            {
-                std::wcout << L"Event 4719: audit policy has been altered" << std::endl;
-            };
-            if (schema.event_id() == 4765)
-            {
-                std::wcout << L"Event 4765: SID History was added to an account" << std::endl;
-            }
-            if (schema.event_id() == 4766)
-            {
-                std::wcout << L"Event 4766: attempt to add SID history to an account failed" << std::endl;
-            }
-            if (schema.event_id() == 4794)
-            {
-                std::wcout << L"Event 4794: attempt was made to set the directory services restore mode" << std::endl;
-            }
-            if (schema.event_id() == 4897)
-            {
-                std::wcout << L"Event 4897: Role separation was enabled" << std::endl;
-            }
-            if (schema.event_id() == 4964)
-            {
-                std::wcout << L"Event 4964: special groups have been assigned to a new logon" << std::endl;
-            }
-            if (schema.event_id() == 5124)
-            {
-                std::wcout << L"Event 5124: A security setting was updated on the OCSP Responder Service" << std::endl;
-            }
-            if (schema.event_id() == 4621)
-            {
-                std::wcout << L"Event 4621: recovered system from crash on audit failure. activity might not have been recorded" << std::endl;
-            }
-            if (schema.event_id() == 4675)
-            {
-                std::wcout << L"Event 4675: SIDs were filtered" << std::endl;
-            }
-            if (schema.event_id() == 4692)
-            {
-                std::wcout << L"Event 4692: Backup of data protection master key was attempted" << std::endl;
-            }
-            if (schema.event_id() == 4693)
-            {
-                std::wcout << L"Event 4693: Recovery of data protection master key was attempted" << std::endl;
-            }
-            if (schema.event_id() == 1102)
-            {
-                std::wcout << L"Event 1102: The audit log was cleared" << std::endl;
-            }
-            if (schema.event_id() == 4713)
-            {
-                std::wcout << L"Event 4713: Kerberos policy was changed" << std::endl;
-            }
-            if (schema.event_id() == 4714)
-            {
-                std::wcout << L"Event 4714: Encrypted data recovery policy was changed" << std::endl;
-            }
-            if (schema.event_id() == 4715)
-            {
-                std::wcout << L"Event 4715: The audit policy (SACL) on an object was changed" << std::endl;
-            }
-            if (schema.event_id() == 4724)
-            {
-                std::wcout << L"Event 4724: An attempt was made to reset an account's password" << std::endl;
-            }
-            if (schema.event_id() == 4727)
-            {
-                std::wcout << L"Event 4727: A security-enabled global group was created" << std::endl;
-            }
-            if (schema.event_id() == 4735)
-            {
-                std::wcout << L"Event 4735: A security-enabled local group was changed" << std::endl;
-            }
-            if (schema.event_id() == 4737)
-            {
-                std::wcout << L"Event 4737: A security-enabled global group was changed" << std::endl;
-            }
-            if (schema.event_id() == 4739)
-            {
-                std::wcout << L"Event 4739: Domain Policy was changed" << std::endl;
-            }
-            if (schema.event_id() == 4754)
-            {
-                std::wcout << L"Event 4754: A security-enabled universal group was created" << std::endl;
-            }
-            if (schema.event_id() == 4755)
-            {
-                std::wcout << L"Event 4755: A security-enabled universal group was changed" << std::endl;
-            }
-            if (schema.event_id() == 4764)
-            {
-                std::wcout << L"Event 4764: A security-disabled group was deleted / A group's type was changed" << std::endl;
-            }
-            if (schema.event_id() == 4780)
-            {
-                std::wcout << L"Event 4780: The ACL was set on accounts which are members of administrators groups" << std::endl;
-            }
-            if (schema.event_id() == 4865)
-            {
-                std::wcout << L"Event 4865: A trusted forest information entry was added" << std::endl;
-            }
-            if (schema.event_id() == 4866)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4867)
-            {
-                std::wcout << L"Event 4867: A trusted forest information entry was modified" << std::endl;
-            }
-            if (schema.event_id() == 4868)
-            {
-                std::wcout << L"Event 4868: The certificate manager denied a pending certificate request" << std::endl;
-            }
-            if (schema.event_id() == 4870)
-            {
-                std::wcout << L"Event 4870: Certificate Services revoked a certificate" << std::endl;
-            }
-            if (schema.event_id() == 4882)
-            {
-                std::wcout << L"Event 4882: The security permissions for Certificate Services changed" << std::endl;
-            }
-            if (schema.event_id() == 4885)
-            {
-                std::wcout << L"Event 4885: The audit filter for Certificate Services changed" << std::endl;
-            }
-            if (schema.event_id() == 4890)
-            {
-                std::wcout << L"Event 4890: The certificate manager settings for Certificate Services changed" << std::endl;
-            }
-            if (schema.event_id() == 4892)
-            {
-                std::wcout << L"Event 4892: A property of Certificate Services changed" << std::endl;
-            }
-            if (schema.event_id() == 4892)
-            {
-                std::wcout << L"Event 4866: A trusted forest information entry was removed" << std::endl;
-            }
-            if (schema.event_id() == 4896)
-            {
-                std::wcout << L"Event 4896: One or more rows have been deleted from the certificate database" << std::endl;
-            }
-            if (schema.event_id() == 4906)
-            {
-                std::wcout << L"Event 4906: The CrashOnAuditFail value has changed" << std::endl;
-            }
-            if (schema.event_id() == 4907)
-            {
-                std::wcout << L"Event 4907: Auditing settings on object were changed" << std::endl;
-            }
-            if (schema.event_id() == 4908)
-            {
-                std::wcout << L"Event 4908: Special Groups Logon table modified" << std::endl;
-            }
-            if (schema.event_id() == 4912)
-            {
-                std::wcout << L"Event 4912: Per User Audit Policy was changed" << std::endl;
-            }
-            if (schema.event_id() == 4960)
-            {
-                std::wcout << L"Event 4960: IPsec dropped an inbound packet that failed an integrity check" << std::endl;
-            }
-            if (schema.event_id() == 4961)
-            {
-                std::wcout << L"Event 4961: IPsec dropped an inbound packet that failed a replay check. could indicate a replay attack" << std::endl;
-            }
-            if (schema.event_id() == 4962)
-            {
-                std::wcout << L"Event 4962: IPsec dropped an inbound packet that failed a replay check. too low sequence number to ensure it was not a replay" << std::endl;
-            }
-            if (schema.event_id() == 4963)
-            {
-                std::wcout << L"Event 4963: IPsec dropped an inbound clear text packet that should have been secured" << std::endl;
-            }
-            if (schema.event_id() == 4965)
-            {
-                std::wcout << L"Event 4965: IPsec received a packet from a remote computer with an incorrect Security Parameter Index" << std::endl;
-            }
-            if (schema.event_id() == 4976)
-            {
-                std::wcout << L"Event 4976: During Main Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
-            }
-            if (schema.event_id() == 4977)
-            {
-                std::wcout << L"Event 4977: During Quick Mode negotiation, IPsec received an invalid negotiation packet." << std::endl;
-            }
-            if (schema.event_id() == 4978)
-            {
-                std::wcout << L"Event 4978: During Extended Mode negotiation, IPsec received an invalid negotiation packet" << std::endl;
-            }
-            if (schema.event_id() == 4983)
-            {
-                std::wcout << L"Event 4983: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted." << std::endl;
-            }
-            if (schema.event_id() == 4984)
-            {
-                std::wcout << L"Event 4984: An IPsec Extended Mode negotiation failed, corresponding Main Mode security association has been deleted" << std::endl;
-            }
-            if (schema.event_id() == 5027)
-            {
-                std::wcout << L"Event 5027: The Windows Firewall Service was unable to retrieve the security policy from the local storage" << std::endl;
-            }
-            if (schema.event_id() == 5028)
-            {
-                std::wcout << L"Event 5028: The Windows Firewall Service was unable to parse the new security policy." << std::endl;
-            }
+            
         }
         catch (const std::exception& e) 
         {

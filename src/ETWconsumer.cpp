@@ -95,17 +95,17 @@
          }
     
      });
-    */
+    */  
 
 
     krabs::kernel::registry_provider reg;
     krabs::kernel::file_io_provider file;
-    krabs::kernel::process_provider process;
+    krabs::kernel::process_provider process; 
 
     std::cout << "kernel providers loaded\n";
 
     krabs::provider<> Security_provider(krabs::guid(L"{54849625-5478-4994-A5BA-3E3B0328C30D}"));
-    krabs::provider<> Network_provider(krabs::guid(L"{7dd42a49-5329-4832-8dfd-43d979153a88}"));
+   // krabs::provider<> Network_provider(krabs::guid(L"{7dd42a49-5329-4832-8dfd-43d979153a88}"));
 
     std::cout << "user providers loaded\n";
 
@@ -119,14 +119,14 @@
     configure_registry_provider(reg);
     configure_file_provider(file);
     configure_process_provider(process);
-    configure_network_provider(Network_provider);
+  //  configure_network_provider(Network_provider);
 
     kernel.enable(reg);
     kernel.enable(file);
     kernel.enable(process);
     std::cout << "kernel providers enabled\n";
     user.enable(Security_provider);
-    user.enable(Network_provider);
+  //  user.enable(Network_provider);
     std::cout << "user provider enabled\n";
 
     std::thread forerunner([&]{
@@ -140,7 +140,7 @@
      Blasphemy = std::thread([&]()
      {
         std::cout << "sleep time\n";
-std::this_thread::sleep_for(std::chrono::seconds(120));
+std::this_thread::sleep_for(std::chrono::seconds(20));
         kernel.stop();
         std::cout << "kernel stoppped\n";
         user.stop();
